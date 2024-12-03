@@ -27,43 +27,18 @@ function Nav() {
       <div className="flex items-center justify-between px-6 py-4">
         {/* 로고 */}
         <img
-          src="https://image.tving.com/ntgs/operation/logo/2023/09/18/1695032536_1.svg"
-          alt="tving logo"
+          src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
+          alt="netflix logo"
           className="h-8 cursor-pointer"
           onClick={() => window.location.reload()}
         />
 
-        {/* 메뉴 */}
-        <div className="hidden md:flex space-x-6 text-sm font-medium">
-          <a href="/series" className="hover:text-red-500">
-            시리즈
-          </a>
-          <a href="/entertainment" className="hover:text-red-500">
-            예능
-          </a>
-          <a href="/movies" className="hover:text-red-500">
-            영화
-          </a>
-          <a href="/live" className="hover:text-red-500">
-            라이브
-          </a>
-          <a href="/sports" className="hover:text-red-500">
-            스포츠
-          </a>
-          <a href="/anime" className="hover:text-red-500">
-            애니
-          </a>
-        </div>
-
         {/* 오른쪽 컨테이너 */}
         <aside className="flex items-center space-x-4">
-          <button className="text-sm px-4 py-2  hover:text-red-500">
-            찾기
-          </button>
           <img
-            src="https://image.tving.com/upload/profile/IG00000001_IMAGE_2.png/dims/resize/100"
+            src="https://upload.wikimedia.org/wikipedia/commons/0/0b/Netflix-avatar.png"
             alt="user logged"
-            className="w-8 h-8 rounded-full cursor-pointer"
+            className="w-8 h-8 cursor-pointer"
           />
         </aside>
       </div>
