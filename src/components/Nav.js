@@ -5,7 +5,6 @@ function Nav() {
 
   useEffect(() => {
     const handleScroll = () => {
-      console.log(window.scrollY);
       if (window.scrollY > 50) {
         setShow(true);
       } else {
@@ -22,7 +21,7 @@ function Nav() {
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 bg-black text-white ${
-        show ? "shadow-lg" : ""
+        show ? "shadow-lg opacity-80" : ""
       } transition-all duration-300`}
     >
       <div className="flex items-center justify-between px-6 py-4">
@@ -58,7 +57,7 @@ function Nav() {
 
         {/* 오른쪽 컨테이너 */}
         <aside className="flex items-center space-x-4">
-          <button className="text-sm px-4 py-2 rounded-full hover:bg-red-500 hover:text-white transition">
+          <button className="text-sm px-4 py-2  hover:text-red-500">
             찾기
           </button>
           <img
