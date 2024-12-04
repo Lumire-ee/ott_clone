@@ -26,6 +26,10 @@ function Nav() {
     navigate(`/search?query=${e.target.value}`);
   };
 
+  const handleLogoClick = () => {
+    navigate("/");
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 bg-black text-white ${
@@ -38,7 +42,7 @@ function Nav() {
           src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg"
           alt="netflix logo"
           className="h-8 cursor-pointer"
-          onClick={() => window.location.reload()}
+          onClick={handleLogoClick}
         />
         {/* 검색폼 */}
         <input

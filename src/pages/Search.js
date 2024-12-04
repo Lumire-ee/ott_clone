@@ -12,10 +12,14 @@ function Search() {
   const debouncedSearchTerm = useDebounce(searchTerm, 500);
 
   useEffect(() => {
+    if (!searchTerm) {
+      navigate("/");
+      return;
+    }
     if (debouncedSearchTerm) {
       fetchSearchMovie(debouncedSearchTerm);
     }
-  }, [debouncedSearchTerm]);
+  }, [debouncedSearchTerm, searchTerm, navigate]);
 
   const fetchSearchMovie = async (debouncedSearchTerm) => {
     console.log(debouncedSearchTerm);
@@ -51,6 +55,7 @@ function Search() {
               </div>
             );
           }
+          return null;
         })}
       </section>
     ) : (
