@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useRef } from "react";
+import useOnClickOutside from "../hooks/useOnClickOutside";
 
 function MovieModal({
   backdrop_path,
@@ -10,10 +11,18 @@ function MovieModal({
   vote_average,
   setModalIsOpen,
 }) {
+  const ref = useRef();
+  useOnClickOutside(ref, () => {
+    setModalIsOpen(false);
+  });
+
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75">
       {/* Modal Container */}
-      <div className="relative bg-black text-white rounded-lg shadow-lg w-[90%] md:w-[70%] lg:w-[50%] overflow-hidden">
+      <div
+        ref={ref}
+        className="modal-container relative bg-black text-white rounded-lg shadow-lg w-[90%] md:w-[70%] lg:w-[50%] overflow-hidden"
+      >
         {/* Close Button */}
         <button
           onClick={() => setModalIsOpen(false)}
