@@ -1,34 +1,33 @@
+import { Outlet, Route, Routes } from "react-router-dom";
 import "./App.css";
-import requests from "./api/requests";
-import Banner from "./components/Banner";
 import Footer from "./components/Footer";
 import Nav from "./components/Nav";
-import Row from "./components/Row";
+import Detail from "./pages/Detail";
+import Main from "./pages/Main";
+import Search from "./pages/Search";
+
+const Layout = () => {
+  return (
+    <div>
+      <Nav />
+
+      <Outlet />
+
+      <Footer />
+    </div>
+  );
+};
 
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Banner />
-      <Row
-        title="오늘의 TOP20"
-        id="TT"
-        fetchUrl={requests.fetchTopRated}
-        isLargeRow={true}
-      />
-
-      <Row title="Trending Now" id="AS" fetchUrl={requests.fetchTrending} />
-      <Row
-        title="Action Movies"
-        id="AN"
-        fetchUrl={requests.fetchActionMovies}
-      />
-      <Row
-        title="Comedy Movies"
-        id="CM"
-        fetchUrl={requests.fetchComedyMovies}
-      />
-      <Footer />
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<Main />} />
+          <Route path=":movieId" element={<Detail />} />
+          <Route path="search" element={<Search />} />
+        </Route>
+      </Routes>
     </div>
   );
 }
