@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import { useLocation } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import axios from "../api/axios";
 import useDebounce from "../hooks/useDebounce";
 
 function Search() {
+  const navigate = useNavigate();
   const [searchResults, setSearchResults] = useState([]);
 
   const query = new URLSearchParams(useLocation().search);
@@ -39,6 +40,7 @@ function Search() {
             return (
               <div
                 key={movie.id}
+                onClick={() => navigate(`/${movie.id}`)}
                 className="relative group overflow-hidden rounded-lg shadow-lg"
               >
                 <img
