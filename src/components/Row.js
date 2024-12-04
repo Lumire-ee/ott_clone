@@ -1,8 +1,11 @@
 import axios from "../api/axios";
 import React, { useState, useEffect, useRef } from "react";
+import MovieModal from "./MovieModal";
 
 function Row({ title, id, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [movieIsSelected, setMovieIsSelected] = useState({});
   const rowRef = useRef(null);
 
   const fetchMovieData = async () => {
@@ -25,6 +28,11 @@ function Row({ title, id, fetchUrl, isLargeRow }) {
           left: scrollAmount,
           behavior: "smooth",
         });
+  };
+
+  const handleClick = (movie) => {
+    setModalIsOpen(true);
+    setMovieIsSelected(movie);
   };
 
   return (
@@ -55,6 +63,7 @@ function Row({ title, id, fetchUrl, isLargeRow }) {
                 }`}
                 alt={movie.title || movie.name}
                 className="w-full h-full object-cover rounded-md transition-transform duration-300 group-hover:scale-105"
+                onClick={() => handleClick(movie)}
               />
               {/* "오늘의 TOP20"에만 순서 추가 */}
               {isLargeRow && (
@@ -72,6 +81,10 @@ function Row({ title, id, fetchUrl, isLargeRow }) {
           &#10095;
         </button>
       </div>
+
+      {modalIsOpen && (
+        <MovieModal {...movieIsSelected} setModalIsOpen={setModalIsOpen} />
+      )}
     </div>
   );
 }
