@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Nav() {
   const [show, setShow] = useState(false);
+  const [searchValue, setSearchValue] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -18,6 +21,11 @@ function Nav() {
     };
   }, []);
 
+  const handleChange = (e) => {
+    setSearchValue(e.target.value);
+    navigate(`/search?query=${e.target.value}`);
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 bg-black text-white ${
@@ -31,6 +39,14 @@ function Nav() {
           alt="netflix logo"
           className="h-8 cursor-pointer"
           onClick={() => window.location.reload()}
+        />
+        {/* 검색폼 */}
+        <input
+          value={searchValue}
+          onChange={handleChange}
+          className="bg-gray-700 text-white text-sm placeholder-gray-400 px-4 py-2 rounded-xl focus:outline-none focus:ring-2 focus:ring-red-500 transition"
+          type="text"
+          placeholder="영화를 검색해주세요"
         />
 
         {/* 오른쪽 컨테이너 */}
