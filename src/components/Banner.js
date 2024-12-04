@@ -32,7 +32,7 @@ function Banner() {
   if (!movie) return null;
 
   const trailerKey = movie.videos?.results?.find(
-    (video) => video.type === "Trailer" && video.site === "YouTube"
+    (video) => video.site === "YouTube"
   )?.key;
 
   if (!isClicked) {

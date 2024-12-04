@@ -1,8 +1,5 @@
 import axios from "../api/axios";
 import React, { useState, useEffect, useRef } from "react";
-import smoothscroll from "smoothscroll-polyfill";
-
-smoothscroll.polyfill();
 
 function Row({ title, id, fetchUrl, isLargeRow }) {
   const [movies, setMovies] = useState([]);
