@@ -15,19 +15,26 @@ function Row({ title, id, fetchUrl, isLargeRow }) {
 
   useEffect(() => {
     fetchMovieData();
+    console.log(rowRef.current);
+    if (rowRef.current) {
+      console.log(rowRef.current.scrollWidth);
+      console.log(rowRef.current.clientWidth);
+    }
   }, []);
 
   const handleScroll = (direction) => {
     const scrollAmount = isLargeRow ? 400 : 300;
-    direction === "left"
-      ? rowRef.current.scrollBy({
-          left: -scrollAmount,
-          behavior: "smooth",
-        })
-      : rowRef.current.scrollBy({
-          left: scrollAmount,
-          behavior: "smooth",
-        });
+    if (rowRef.current) {
+      if (direction === "left") {
+        rowRef.current.scrollBy
+          ? rowRef.current.scrollBy({ left: -scrollAmount, behavior: "smooth" })
+          : (rowRef.current.scrollLeft -= scrollAmount);
+      }
+    } else {
+      rowRef.currentScrollBy
+        ? rowRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" })
+        : (rowRef.current.scrollLeft += scrollAmount);
+    }
   };
 
   const handleClick = (movie) => {
@@ -36,7 +43,7 @@ function Row({ title, id, fetchUrl, isLargeRow }) {
   };
 
   return (
-    <div className="mb-8">
+    <div className="mb-8 row-container">
       <h2 className="text-white text-xl font-bold mb-4">{title}</h2>
       <div className="relative">
         {/* 슬라이드 버튼 */}
