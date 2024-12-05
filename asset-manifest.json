@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/ott_clone/static/css/main.67c1029d.css",
-    "main.js": "/ott_clone/static/js/main.b38c26ff.js",
+    "main.css": "/ott_clone/static/css/main.2a80377c.css",
+    "main.js": "/ott_clone/static/js/main.ec8295dc.js",
     "index.html": "/ott_clone/index.html",
-    "main.67c1029d.css.map": "/ott_clone/static/css/main.67c1029d.css.map",
-    "main.b38c26ff.js.map": "/ott_clone/static/js/main.b38c26ff.js.map"
+    "main.2a80377c.css.map": "/ott_clone/static/css/main.2a80377c.css.map",
+    "main.ec8295dc.js.map": "/ott_clone/static/js/main.ec8295dc.js.map"
   },
   "entrypoints": [
-    "static/css/main.67c1029d.css",
-    "static/js/main.b38c26ff.js"
+    "static/css/main.2a80377c.css",
+    "static/js/main.ec8295dc.js"
   ]
 }
